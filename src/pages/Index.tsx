@@ -1,13 +1,15 @@
+import { lazy, Suspense } from "react";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
-import ValueProposition from "@/components/ValueProposition";
-import ProductsSection from "@/components/ProductsSection";
-import HowItWorks from "@/components/HowItWorks";
-import Testimonials from "@/components/Testimonials";
-import FAQ from "@/components/FAQ";
-import FinalCTA from "@/components/FinalCTA";
-import Footer from "@/components/Footer";
+
+const ValueProposition = lazy(() => import("@/components/ValueProposition"));
+const ProductsSection = lazy(() => import("@/components/ProductsSection"));
+const HowItWorks = lazy(() => import("@/components/HowItWorks"));
+const Testimonials = lazy(() => import("@/components/Testimonials"));
+const FAQ = lazy(() => import("@/components/FAQ"));
+const FinalCTA = lazy(() => import("@/components/FinalCTA"));
+const Footer = lazy(() => import("@/components/Footer"));
 
 const Index = () => {
   return (
@@ -25,14 +27,18 @@ const Index = () => {
         <Header />
         <main>
           <HeroSection />
-          <ValueProposition />
-          <ProductsSection />
-          <HowItWorks />
-          <Testimonials />
-          <FAQ />
-          <FinalCTA />
+          <Suspense fallback={<div className="h-96" />}>
+            <ValueProposition />
+            <ProductsSection />
+            <HowItWorks />
+            <Testimonials />
+            <FAQ />
+            <FinalCTA />
+          </Suspense>
         </main>
-        <Footer />
+        <Suspense fallback={null}>
+          <Footer />
+        </Suspense>
       </div>
     </>
   );
