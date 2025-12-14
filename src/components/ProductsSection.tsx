@@ -57,7 +57,7 @@ const products = {
       description: "Treinamento completo para dominar a inteligência artificial e aplicar no seu negócio. Do básico ao avançado.",
       features: ["Aulas práticas", "Certificado", "Suporte exclusivo"],
       originalPrice: "297,00",
-      price: "97,00",
+      price: "187,00",
       whatsappMessage: "Olá! Quero adquirir o Curso Mestres da IA agora!"
     },
     {
@@ -69,7 +69,7 @@ const products = {
       description: "Curso completo RUYTER com todas as estratégias e técnicas avançadas para alavancar seus resultados.",
       features: ["Conteúdo completo", "Acesso vitalício", "Bônus exclusivos"],
       originalPrice: "497,00",
-      price: "197,00",
+      price: "247,00",
       whatsappMessage: "Olá! Quero adquirir o Curso RUYTER Completo agora!"
     }
   ]
