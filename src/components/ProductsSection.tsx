@@ -16,8 +16,8 @@ const products = {
       title: "Sistema SaaS Delivery",
       description: "Sistema completo de pedidos online para delivery. Receba pedidos, gerencie entregas e aumente suas vendas.",
       features: ["Sistema completo", "Pedidos online", "Gestão de entregas"],
-      originalPrice: "87,90",
-      price: "29,90",
+      originalPrice: "121,00",
+      price: "87,90",
       whatsappMessage: "Olá! Quero adquirir o Sistema SaaS Delivery agora!"
     }
   ],
@@ -30,8 +30,8 @@ const products = {
       title: "Pack 10k Artes Canva",
       description: "+10.000 artes editáveis profissionais para Canva. Posts, stories, banners e muito mais para suas redes.",
       features: ["+10.000 templates", "100% editáveis", "Uso comercial"],
-      originalPrice: "24,60",
-      price: "9,90",
+      originalPrice: "48,90",
+      price: "24,90",
       whatsappMessage: "Olá! Quero adquirir o Pack 10k Artes Canva agora!"
     },
     {
@@ -42,9 +42,21 @@ const products = {
       title: "400 Prompts ChatGPT",
       description: "Prompts apelativos e estratégicos para lucrar com inteligência artificial. Copy, vendas e muito mais.",
       features: ["400 prompts", "Estratégias de lucro", "Uso imediato"],
-      originalPrice: "14,99",
-      price: "7,90",
+      originalPrice: "97,00",
+      price: "46,00",
       whatsappMessage: "Olá! Quero adquirir os 400 Prompts ChatGPT agora!"
+    },
+    {
+      id: 6,
+      icon: Sparkles,
+      badge: "OFERTA ESPECIAL",
+      badgeColor: "bg-pink-500 text-white",
+      title: "30+ Prompts Lucrativos + Bônus",
+      description: "Mais de 30 prompts lucrativos para monetizar com IA, incluindo bônus exclusivos para acelerar seus resultados.",
+      features: ["30+ prompts", "Bônus exclusivos", "Resultados rápidos"],
+      originalPrice: "52,90",
+      price: "22,90",
+      whatsappMessage: "Olá! Quero adquirir os 30+ Prompts Lucrativos + Bônus agora!"
     }
   ],
   cursos: [
