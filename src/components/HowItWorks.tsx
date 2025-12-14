@@ -1,24 +1,24 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { MousePointer, CreditCard, MessageCircle } from "lucide-react";
+import { MousePointer, MessageCircle, Package } from "lucide-react";
 
 const steps = [
   {
     number: "01",
     icon: MousePointer,
     title: "Escolha seu Produto",
-    description: "Navegue pelos nossos produtos e escolha o que melhor atende sua necessidade."
+    description: "Navegue pelos nossos produtos digitais e clique em 'Comprar Agora' no que desejar."
   },
   {
     number: "02",
-    icon: CreditCard,
-    title: "Faça o Pagamento",
-    description: "Pague com PIX ou cartão de crédito de forma rápida e segura."
+    icon: MessageCircle,
+    title: "Fale Conosco no WhatsApp",
+    description: "Você será direcionado ao nosso WhatsApp para finalizar a compra e combinar o pagamento via PIX."
   },
   {
     number: "03",
-    icon: MessageCircle,
-    title: "Receba pelo WhatsApp",
-    description: "Após o pagamento, nos chame no WhatsApp e receba seu produto imediatamente."
+    icon: Package,
+    title: "Receba seu Produto",
+    description: "Após confirmação do pagamento, enviamos seu produto digital instantaneamente pelo WhatsApp."
   }
 ];
 

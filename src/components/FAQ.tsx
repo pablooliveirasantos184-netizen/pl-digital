@@ -7,12 +7,16 @@ import {
 
 const faqs = [
   {
-    question: "Como recebo meu produto?",
-    answer: "Após confirmar o pagamento, entre em contato conosco pelo WhatsApp. Enviaremos todos os arquivos e acessos diretamente para você em poucos minutos."
+    question: "Como funciona a compra?",
+    answer: "É simples! Escolha o produto desejado e clique em 'Comprar Agora'. Você será direcionado ao nosso WhatsApp para combinar o pagamento via PIX e receber seu produto instantaneamente."
   },
   {
-    question: "Quais formas de pagamento são aceitas?",
-    answer: "Aceitamos PIX (pagamento instantâneo) e cartão de crédito. Todas as transações são processadas de forma segura pela InfinitePay."
+    question: "Como recebo meu produto?",
+    answer: "Após a confirmação do pagamento via PIX, enviamos seu produto digital diretamente pelo WhatsApp em poucos minutos."
+  },
+  {
+    question: "Qual forma de pagamento é aceita?",
+    answer: "Trabalhamos exclusivamente com PIX para garantir um processo rápido e seguro. Você recebe os dados para pagamento diretamente no WhatsApp."
   },
   {
     question: "Os produtos funcionam no celular?",
@@ -21,10 +25,6 @@ const faqs = [
   {
     question: "Vocês oferecem suporte?",
     answer: "Sim, oferecemos suporte completo via WhatsApp. Nossa equipe está pronta para ajudar com qualquer dúvida sobre os produtos."
-  },
-  {
-    question: "É seguro comprar aqui?",
-    answer: "Totalmente seguro! Usamos a InfinitePay, uma das maiores plataformas de pagamento do Brasil, para processar todas as transações."
   },
   {
     question: "Posso usar os produtos comercialmente?",
