@@ -1,9 +1,9 @@
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { MessageCircle, Clock } from "lucide-react";
-
+import { MessageCircle, Clock, Flame } from "lucide-react";
 import productDelivery from "@/assets/product-delivery-system.png";
 import productCanva from "@/assets/product-canva-pack.png";
 import productPrompts400 from "@/assets/product-prompts-400.png";
@@ -209,18 +209,78 @@ const ProductCard = ({ product, index }: { product: Product; index: number }) =>
   );
 };
 
+const CountdownTimer = () => {
+  const [timeLeft, setTimeLeft] = useState({
+    hours: 23,
+    minutes: 59,
+    seconds: 59
+  });
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft(prev => {
+        let { hours, minutes, seconds } = prev;
+        
+        if (seconds > 0) {
+          seconds--;
+        } else if (minutes > 0) {
+          minutes--;
+          seconds = 59;
+        } else if (hours > 0) {
+          hours--;
+          minutes = 59;
+          seconds = 59;
+        } else {
+          // Reset to 24 hours when timer reaches 0
+          hours = 23;
+          minutes = 59;
+          seconds = 59;
+        }
+        
+        return { hours, minutes, seconds };
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const formatNumber = (num: number) => num.toString().padStart(2, '0');
+
+  return (
+    <div className="flex items-center gap-3">
+      <div className="flex flex-col items-center">
+        <span className="text-2xl md:text-3xl font-bold text-primary font-display">{formatNumber(timeLeft.hours)}</span>
+        <span className="text-xs text-muted-foreground uppercase">Horas</span>
+      </div>
+      <span className="text-2xl font-bold text-primary animate-pulse">:</span>
+      <div className="flex flex-col items-center">
+        <span className="text-2xl md:text-3xl font-bold text-primary font-display">{formatNumber(timeLeft.minutes)}</span>
+        <span className="text-xs text-muted-foreground uppercase">Min</span>
+      </div>
+      <span className="text-2xl font-bold text-primary animate-pulse">:</span>
+      <div className="flex flex-col items-center">
+        <span className="text-2xl md:text-3xl font-bold text-primary font-display">{formatNumber(timeLeft.seconds)}</span>
+        <span className="text-xs text-muted-foreground uppercase">Seg</span>
+      </div>
+    </div>
+  );
+};
+
 const ProductsSection = () => {
   return (
     <section id="produtos" className="py-20 relative">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px]" />
       
       <div className="container mx-auto px-4 relative z-10">
-        {/* Limited Time Banner */}
+        {/* Countdown Timer Banner */}
         <div className="flex justify-center mb-8">
-          <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 rounded-full px-6 py-3 animate-pulse">
-            <Clock className="w-5 h-5 text-primary" />
-            <span className="text-primary font-semibold">OFERTA POR TEMPO LIMITADO!</span>
-            <Clock className="w-5 h-5 text-primary" />
+          <div className="bg-gradient-to-r from-primary/20 via-primary/10 to-primary/20 border border-primary/30 rounded-2xl px-6 md:px-10 py-5 flex flex-col md:flex-row items-center gap-4">
+            <div className="flex items-center gap-2">
+              <Flame className="w-6 h-6 text-orange-500 animate-pulse" />
+              <span className="text-foreground font-bold text-lg md:text-xl">OFERTA EXPIRA EM:</span>
+              <Flame className="w-6 h-6 text-orange-500 animate-pulse" />
+            </div>
+            <CountdownTimer />
           </div>
         </div>
 
