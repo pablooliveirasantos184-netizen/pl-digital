@@ -1,8 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle } from "lucide-react";
+import logoPlDigital from "@/assets/logo-pl-digital.png";
 
 const Header = () => {
-  const whatsappLink = "https://wa.me/5522997455396?text=Olá! Tenho interesse nos produtos digitais da Pl Digital!";
+  const whatsappLink = "https://wa.me/5522997455396?text=Olá! Tenho interesse nos produtos digitais da PL Digital!";
 
   const scrollToProducts = () => {
     document.getElementById("produtos")?.scrollIntoView({ behavior: "smooth" });
@@ -12,10 +13,8 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-            <span className="font-display font-bold text-primary-foreground text-lg">Pl</span>
-          </div>
-          <span className="font-display font-bold text-xl text-foreground">Pl Digital</span>
+          <img src={logoPlDigital} alt="PL Digital" className="w-10 h-10 rounded-lg object-cover" />
+          <span className="font-display font-bold text-xl text-foreground">PL Digital</span>
         </div>
 
         <nav className="hidden md:flex items-center gap-8">
