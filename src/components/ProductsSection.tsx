@@ -2,7 +2,13 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ShoppingBag, Palette, Sparkles, GraduationCap, MessageCircle } from "lucide-react";
+import { MessageCircle } from "lucide-react";
+
+import productDelivery from "@/assets/product-delivery-system.png";
+import productCanva from "@/assets/product-canva-pack.png";
+import productPrompts400 from "@/assets/product-prompts-400.png";
+import productPromptsBonus from "@/assets/product-prompts-bonus.png";
+import productCourseAI from "@/assets/product-course-ai.png";
 
 const whatsappNumber = "5522997455396";
 
@@ -10,79 +16,67 @@ const products = {
   sistemas: [
     {
       id: 1,
-      icon: ShoppingBag,
+      image: productDelivery,
       badge: "MAIS VENDIDO",
       badgeColor: "bg-primary text-primary-foreground",
       title: "Sistema SaaS Delivery",
       description: "Sistema completo de pedidos online para delivery. Receba pedidos, gerencie entregas e aumente suas vendas.",
       features: ["Sistema completo", "Pedidos online", "Gestão de entregas"],
       originalPrice: "121,00",
-      price: "87,90",
+      price: "19,98",
       whatsappMessage: "Olá! Quero adquirir o Sistema SaaS Delivery agora!"
     }
   ],
   packs: [
     {
       id: 2,
-      icon: Palette,
+      image: productCanva,
       badge: "SUPER OFERTA",
       badgeColor: "bg-orange-500 text-white",
       title: "Pack 10k Artes Canva",
       description: "+10.000 artes editáveis profissionais para Canva. Posts, stories, banners e muito mais para suas redes.",
       features: ["+10.000 templates", "100% editáveis", "Uso comercial"],
       originalPrice: "48,90",
-      price: "24,90",
+      price: "19,98",
       whatsappMessage: "Olá! Quero adquirir o Pack 10k Artes Canva agora!"
     },
     {
       id: 3,
-      icon: Sparkles,
+      image: productPrompts400,
       badge: "LUCRE COM IA",
       badgeColor: "bg-purple-500 text-white",
       title: "400 Prompts ChatGPT",
       description: "Prompts apelativos e estratégicos para lucrar com inteligência artificial. Copy, vendas e muito mais.",
       features: ["400 prompts", "Estratégias de lucro", "Uso imediato"],
       originalPrice: "97,00",
-      price: "46,00",
+      price: "19,98",
       whatsappMessage: "Olá! Quero adquirir os 400 Prompts ChatGPT agora!"
     },
     {
       id: 6,
-      icon: Sparkles,
+      image: productPromptsBonus,
       badge: "OFERTA ESPECIAL",
       badgeColor: "bg-pink-500 text-white",
       title: "30+ Prompts Lucrativos + Bônus",
       description: "Mais de 30 prompts lucrativos para monetizar com IA, incluindo bônus exclusivos para acelerar seus resultados.",
       features: ["30+ prompts", "Bônus exclusivos", "Resultados rápidos"],
       originalPrice: "52,90",
-      price: "22,90",
+      price: "19,98",
       whatsappMessage: "Olá! Quero adquirir os 30+ Prompts Lucrativos + Bônus agora!"
     }
   ],
   cursos: [
     {
       id: 4,
-      icon: GraduationCap,
+      image: productCourseAI,
       badge: "CURSO COMPLETO",
       badgeColor: "bg-emerald-500 text-white",
       title: "Mestres da IA",
       description: "Treinamento completo para dominar a inteligência artificial e aplicar no seu negócio. Do básico ao avançado.",
       features: ["Aulas práticas", "Certificado", "Suporte exclusivo"],
       originalPrice: "297,00",
-      price: "187,00",
+      price: "19,98",
       whatsappMessage: "Olá! Quero adquirir o Curso Mestres da IA agora!"
-    },
-    {
-      id: 5,
-      icon: GraduationCap,
-      badge: "BEST SELLER",
-      badgeColor: "bg-blue-500 text-white",
-      title: "Curso RUYTER Completo",
-      description: "Curso completo RUYTER com todas as estratégias e técnicas avançadas para alavancar seus resultados.",
-      features: ["Conteúdo completo", "Acesso vitalício", "Bônus exclusivos"],
-      originalPrice: "497,00",
-      price: "247,00",
-      whatsappMessage: "Olá! Quero adquirir o Curso RUYTER Completo agora!"
     }
   ]
 };
@@ -97,19 +91,24 @@ const ProductCard = ({ product, index }: { product: typeof products.sistemas[0];
     >
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       
-      <CardHeader className="relative">
-        <Badge className={`${product.badgeColor} w-fit mb-4`}>
-          {product.badge}
-        </Badge>
-        <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-          <product.icon className="w-8 h-8 text-primary" />
+      <CardHeader className="relative p-0">
+        <div className="relative h-48 overflow-hidden rounded-t-lg">
+          <img 
+            src={product.image} 
+            alt={product.title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
+          <Badge className={`${product.badgeColor} absolute top-4 left-4`}>
+            {product.badge}
+          </Badge>
         </div>
-        <h3 className="font-display font-bold text-2xl text-foreground">
-          {product.title}
-        </h3>
       </CardHeader>
 
-      <CardContent className="relative">
+      <CardContent className="relative pt-4">
+        <h3 className="font-display font-bold text-2xl text-foreground mb-3">
+          {product.title}
+        </h3>
         <p className="text-muted-foreground mb-6">
           {product.description}
         </p>
