@@ -274,7 +274,7 @@ const ProductsSection = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Countdown Timer Banner */}
         <div className="flex justify-center mb-8">
-          <div className="bg-gradient-to-r from-primary/20 via-primary/10 to-primary/20 border border-primary/30 rounded-2xl px-6 md:px-10 py-5 flex flex-col md:flex-row items-center gap-4">
+          <div className="bg-gradient-to-r from-primary/20 via-primary/10 to-primary/20 border border-primary/30 rounded-2xl px-6 md:px-10 py-5 flex flex-col md:flex-row items-center gap-4 animate-fade-in [animation-duration:0.6s]">
             <div className="flex items-center gap-2">
               <Flame className="w-6 h-6 text-orange-500 animate-pulse" />
               <span className="text-foreground font-bold text-lg md:text-xl">OFERTA EXPIRA EM:</span>
