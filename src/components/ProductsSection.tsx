@@ -2,13 +2,15 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { MessageCircle } from "lucide-react";
+import { MessageCircle, Clock } from "lucide-react";
 
 import productDelivery from "@/assets/product-delivery-system.png";
 import productCanva from "@/assets/product-canva-pack.png";
 import productPrompts400 from "@/assets/product-prompts-400.png";
 import productPromptsBonus from "@/assets/product-prompts-bonus.png";
 import productCourseAI from "@/assets/product-course-ai.png";
+import productDarkChannel from "@/assets/product-dark-channel.png";
+import productFollowers from "@/assets/product-followers.png";
 
 const whatsappNumber = "5522997455396";
 
@@ -63,6 +65,18 @@ const products = {
       originalPrice: "52,90",
       price: "19,98",
       whatsappMessage: "Olá! Quero adquirir os 30+ Prompts Lucrativos + Bônus agora!"
+    },
+    {
+      id: 7,
+      image: productDarkChannel,
+      badge: "CONTEÚDO DARK",
+      badgeColor: "bg-violet-600 text-white",
+      title: "Pack Conteúdo Canal Dark",
+      description: "Pack completo de conteúdo para canais dark no YouTube. Vídeos, thumbnails e scripts prontos para usar.",
+      features: ["Vídeos prontos", "Thumbnails editáveis", "Scripts inclusos"],
+      originalPrice: "97,00",
+      price: "19,98",
+      whatsappMessage: "Olá! Quero adquirir o Pack Conteúdo Canal Dark agora!"
     }
   ],
   cursos: [
@@ -77,6 +91,20 @@ const products = {
       originalPrice: "297,00",
       price: "19,98",
       whatsappMessage: "Olá! Quero adquirir o Curso Mestres da IA agora!"
+    }
+  ],
+  servicos: [
+    {
+      id: 8,
+      image: productFollowers,
+      badge: "DESTAQUE",
+      badgeColor: "bg-sky-500 text-white",
+      title: "Pacote Seguidores",
+      description: "Aumente sua presença nas redes sociais! Pacote completo com 1500 seguidores + 3000 views + 550 curtidas.",
+      features: ["1500 seguidores", "3000 views", "550 curtidas"],
+      originalPrice: "149,90",
+      price: "49,98",
+      whatsappMessage: "Olá! Quero adquirir meus seguidores agora!"
     }
   ]
 };
@@ -150,6 +178,15 @@ const ProductsSection = () => {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px]" />
       
       <div className="container mx-auto px-4 relative z-10">
+        {/* Limited Time Banner */}
+        <div className="flex justify-center mb-8">
+          <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 rounded-full px-6 py-3 animate-pulse">
+            <Clock className="w-5 h-5 text-primary" />
+            <span className="text-primary font-semibold">OFERTA POR TEMPO LIMITADO!</span>
+            <Clock className="w-5 h-5 text-primary" />
+          </div>
+        </div>
+
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
             Nossos <span className="gradient-text">Produtos Digitais</span>
@@ -160,16 +197,17 @@ const ProductsSection = () => {
         </div>
 
         <Tabs defaultValue="todos" className="w-full">
-          <TabsList className="grid w-full max-w-md mx-auto grid-cols-4 mb-12">
+          <TabsList className="grid w-full max-w-xl mx-auto grid-cols-5 mb-12">
             <TabsTrigger value="todos">Todos</TabsTrigger>
             <TabsTrigger value="sistemas">Sistemas</TabsTrigger>
             <TabsTrigger value="packs">Packs</TabsTrigger>
             <TabsTrigger value="cursos">Cursos</TabsTrigger>
+            <TabsTrigger value="servicos">Serviços</TabsTrigger>
           </TabsList>
 
           <TabsContent value="todos">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[...products.sistemas, ...products.packs, ...products.cursos].map((product, index) => (
+              {[...products.sistemas, ...products.packs, ...products.cursos, ...products.servicos].map((product, index) => (
                 <ProductCard key={product.id} product={product} index={index} />
               ))}
             </div>
@@ -194,6 +232,14 @@ const ProductsSection = () => {
           <TabsContent value="cursos">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {products.cursos.map((product, index) => (
+                <ProductCard key={product.id} product={product} index={index} />
+              ))}
+            </div>
+          </TabsContent>
+
+          <TabsContent value="servicos">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {products.servicos.map((product, index) => (
                 <ProductCard key={product.id} product={product} index={index} />
               ))}
             </div>
