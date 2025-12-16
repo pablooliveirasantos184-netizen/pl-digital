@@ -10,7 +10,9 @@ import productPrompts400 from "@/assets/product-prompts-400.png";
 import productPromptsBonus from "@/assets/product-prompts-bonus.png";
 import productCourseAI from "@/assets/product-course-ai.png";
 import productDarkChannel from "@/assets/product-dark-channel.png";
-import productFollowers from "@/assets/product-followers.png";
+import logoInstagram from "@/assets/logo-instagram.jpg";
+import logoTiktok from "@/assets/logo-tiktok.png";
+import logoKwai from "@/assets/logo-kwai.png";
 
 const whatsappNumber = "5522997455396";
 
@@ -96,7 +98,7 @@ const products = {
   servicos: [
     {
       id: 8,
-      image: productFollowers,
+      customHeader: true,
       badge: "DESTAQUE",
       badgeColor: "bg-sky-500 text-white",
       title: "Pacote Seguidores",
@@ -109,7 +111,38 @@ const products = {
   ]
 };
 
-const ProductCard = ({ product, index }: { product: typeof products.sistemas[0]; index: number }) => {
+// Custom header for followers product with real logos
+const FollowersHeader = () => (
+  <div className="relative h-48 overflow-hidden rounded-t-lg bg-gradient-to-br from-cyan-400 via-purple-500 to-pink-500">
+    <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
+      <div className="flex items-center justify-center gap-4">
+        <img src={logoInstagram} alt="Instagram" className="w-14 h-14 rounded-xl shadow-lg" />
+        <img src={logoTiktok} alt="TikTok" className="w-14 h-14 rounded-xl shadow-lg" />
+        <img src={logoKwai} alt="Kwai" className="w-14 h-14 rounded-xl shadow-lg" />
+      </div>
+      <span className="text-white font-bold text-2xl tracking-wide drop-shadow-lg">SEGUIDORES</span>
+    </div>
+    <Badge className="bg-sky-500 text-white absolute top-4 left-4">
+      DESTAQUE
+    </Badge>
+  </div>
+);
+
+type Product = {
+  id: number;
+  image?: string;
+  customHeader?: boolean;
+  badge: string;
+  badgeColor: string;
+  title: string;
+  description: string;
+  features: string[];
+  originalPrice: string;
+  price: string;
+  whatsappMessage: string;
+};
+
+const ProductCard = ({ product, index }: { product: Product; index: number }) => {
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(product.whatsappMessage)}`;
 
   return (
@@ -120,17 +153,21 @@ const ProductCard = ({ product, index }: { product: typeof products.sistemas[0];
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       
       <CardHeader className="relative p-0">
-        <div className="relative h-48 overflow-hidden rounded-t-lg">
-          <img 
-            src={product.image} 
-            alt={product.title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
-          <Badge className={`${product.badgeColor} absolute top-4 left-4`}>
-            {product.badge}
-          </Badge>
-        </div>
+        {product.customHeader ? (
+          <FollowersHeader />
+        ) : (
+          <div className="relative h-48 overflow-hidden rounded-t-lg">
+            <img 
+              src={product.image} 
+              alt={product.title}
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
+            <Badge className={`${product.badgeColor} absolute top-4 left-4`}>
+              {product.badge}
+            </Badge>
+          </div>
+        )}
       </CardHeader>
 
       <CardContent className="relative pt-4">
