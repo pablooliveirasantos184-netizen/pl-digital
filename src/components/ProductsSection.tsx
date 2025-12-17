@@ -106,6 +106,7 @@ const products = {
       features: ["1.000 seguidores", "1.000 curtidas", "100.000 views"],
       originalPrice: "149,90",
       price: "54,98",
+      checkoutUrl: "https://pay.kiwify.com.br/R1ueV7i",
       whatsappMessage: "Olá! Quero adquirir o pacote Turbine Seu Perfil agora!"
     }
   ]
@@ -139,14 +140,19 @@ type Product = {
   features: string[];
   originalPrice: string;
   price: string;
+  checkoutUrl?: string;
   whatsappMessage: string;
 };
 
 const ProductCard = ({ product, index }: { product: Product; index: number }) => {
-  const handleWhatsAppClick = () => {
-    const message = encodeURIComponent(product.whatsappMessage);
-    const url = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${message}`;
-    window.open(url, '_blank', 'noopener,noreferrer');
+  const handleBuyClick = () => {
+    if (product.checkoutUrl) {
+      window.open(product.checkoutUrl, '_blank', 'noopener,noreferrer');
+    } else {
+      const message = encodeURIComponent(product.whatsappMessage);
+      const url = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${message}`;
+      window.open(url, '_blank', 'noopener,noreferrer');
+    }
   };
 
   return (
@@ -203,10 +209,10 @@ const ProductCard = ({ product, index }: { product: Product; index: number }) =>
 
       <CardFooter className="relative">
         <Button 
-          onClick={handleWhatsAppClick}
+          onClick={handleBuyClick}
           className="w-full bg-primary text-primary-foreground hover:bg-primary/90 group-hover:box-glow transition-all"
         >
-          <MessageCircle className="w-4 h-4 mr-2" />
+          {!product.checkoutUrl && <MessageCircle className="w-4 h-4 mr-2" />}
           Comprar Agora
         </Button>
       </CardFooter>
