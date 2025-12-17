@@ -101,12 +101,12 @@ const products = {
       customHeader: true,
       badge: "DESTAQUE",
       badgeColor: "bg-sky-500 text-white",
-      title: "Pacote Seguidores",
-      description: "Aumente sua presença nas redes sociais! Pacote completo com 1500 seguidores + 3000 views + 550 curtidas.",
-      features: ["1500 seguidores", "3000 views", "550 curtidas"],
+      title: "Turbine Seu Perfil",
+      description: "Aumente sua presença nas redes sociais! Pacote completo com 1.000 seguidores + 1.000 curtidas + 100.000 views.",
+      features: ["1.000 seguidores", "1.000 curtidas", "100.000 views"],
       originalPrice: "149,90",
-      price: "49,98",
-      whatsappMessage: "Olá! Quero adquirir meus seguidores agora!"
+      price: "54,98",
+      whatsappMessage: "Olá! Quero adquirir o pacote Turbine Seu Perfil agora!"
     }
   ]
 };
@@ -120,7 +120,7 @@ const FollowersHeader = () => (
         <img src={logoTiktok} alt="TikTok" className="w-14 h-14 rounded-xl shadow-lg" />
         <img src={logoKwai} alt="Kwai" className="w-14 h-14 rounded-xl shadow-lg" />
       </div>
-      <span className="text-white font-bold text-2xl tracking-wide drop-shadow-lg">SEGUIDORES</span>
+      <span className="text-white font-bold text-2xl tracking-wide drop-shadow-lg">TURBINE SEU PERFIL</span>
     </div>
     <Badge className="bg-sky-500 text-white absolute top-4 left-4">
       DESTAQUE
